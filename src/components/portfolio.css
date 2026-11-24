@@ -1,0 +1,290 @@
+/* Styles for the portfolio sections: nav, about, projects, experience, contact */
+
+html {
+  scroll-behavior: smooth; /* nav links glide instead of jumping */
+}
+
+/* ---------- Nav bar ---------- */
+.nav {
+  position: sticky; /* stays at the top while you scroll */
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: -32px -16px 0; /* cancel .page padding so it spans edge to edge */
+  padding: 10px 24px;
+  background: var(--animal-bg-color);
+  border-bottom: 2px solid var(--animal-border-color-light);
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--animal-text-color);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 800;
+  color: var(--animal-text-color);
+  text-decoration: none;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover {
+  background: var(--animal-bg-color-secondary);
+}
+
+.nav-links a:focus-visible,
+.nav-brand:focus-visible {
+  outline: 3px solid var(--animal-primary-color);
+  outline-offset: 2px;
+  border-radius: 50px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  scroll-margin-top: 80px; /* so the sticky nav doesn't cover the heading */
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+}
+
+.section h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: inherit;
+}
+
+.section p,
+.section ul {
+  margin: 0;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* text a bit wider than skills */
+  gap: 28px;
+  align-items: start;
+  text-align: left;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.fun-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.skills-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-margin-top: 80px;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  color: #fff;
+}
+
+.project-card p {
+  flex: 1; /* pushes tags + buttons to the bottom so cards line up */
+  line-height: 1.5;
+}
+
+.project-card:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 3px;
+}
+
+.project-year {
+  font-size: 0.8rem;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.project-details ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* ---------- Experience timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 28px;
+  border-left: 3px dashed var(--animal-border-color); /* the line */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px; /* sits on the line */
+  top: 22px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #889df0;
+  border: 4px solid var(--animal-bg-color);
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.job-org {
+  font-weight: 800;
+  color: var(--animal-text-color-secondary);
+}
+
+.job-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--animal-text-color-secondary);
+}
+
+.job-card ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* ---------- Contact ---------- */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  color: #fff;
+  padding: 36px 24px;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+}
+
+.contact-card p {
+  max-width: 34em;
+  line-height: 1.6;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  .nav-links a {
+    padding: 4px 10px;
+    font-size: 0.9rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr; /* skills go below the text */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

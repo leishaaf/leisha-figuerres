@@ -1,0 +1,107 @@
+/* ---------- Sky colors for each time of day ---------- */
+/* These go on the enter page: <div className="enter-page enter-page--day"> */
+
+.enter-page--morning {
+  background: linear-gradient(to bottom, #8ec5ff 0%, #ffd6a5 65%, #ffb4a2 100%);
+  color: var(--animal-text-color);
+}
+
+.enter-page--day {
+  background: linear-gradient(to bottom, #6ec6ff 0%, #a8e0ff 60%, #e6f9f6 100%);
+  color: var(--animal-text-color);
+}
+
+.enter-page--evening {
+  background: linear-gradient(to bottom, #3a3f7a 0%, #c0619b 50%, #ff9a5a 100%);
+  color: #fff8e1;
+}
+
+.enter-page--night {
+  background: linear-gradient(to bottom, #0b1026 0%, #1c2a5a 50%, #4a3f7a 100%);
+  color: #fff8e1;
+}
+
+/* ---------- Sun ---------- */
+.sun {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.sun--morning {
+  left: 12%;
+  bottom: 18%;
+  background: #ffd27a;
+  box-shadow: 0 0 60px 20px rgba(255, 210, 122, 0.6);
+}
+
+.sun--day {
+  right: 12%;
+  top: 10%;
+  background: #fff3b0;
+  box-shadow: 0 0 70px 25px rgba(255, 243, 176, 0.7);
+}
+
+.sun--evening {
+  right: 15%;
+  bottom: 8%;
+  width: 150px;
+  height: 150px;
+  background: #ff8a4c;
+  box-shadow: 0 0 80px 30px rgba(255, 138, 76, 0.6);
+}
+
+/* ---------- Fluffy clouds (a pill + two bumps) ---------- */
+.cloud {
+  position: absolute;
+  width: 160px;
+  height: 46px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  animation: drift 60s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 25px;
+}
+
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 85px;
+}
+
+.cloud--1 { top: 18%; animation-duration: 70s; animation-delay: -10s; }
+.cloud--2 { top: 35%; animation-duration: 90s; animation-delay: -45s; transform: scale(0.7); }
+.cloud--3 { top: 8%;  animation-duration: 110s; animation-delay: -80s; transform: scale(0.5); }
+
+/* Evening clouds are tinted by the sunset */
+.enter-page--evening .cloud {
+  background: rgba(255, 200, 190, 0.55);
+}
+
+/* Clouds float from left to right, then start over */
+@keyframes drift {
+  from { left: -200px; }
+  to   { left: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud {
+    animation: none;
+    left: 20%;
+  }
+}

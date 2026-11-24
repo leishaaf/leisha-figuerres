@@ -1,0 +1,51 @@
+/* Full-width strip at the bottom of the page.
+   The negative margins cancel .page's padding (32px 16px) so it touches the edges. */
+.season-footer {
+  margin: auto -16px -32px;
+  padding: 20px 16px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+/* Background color per season */
+.season-footer--spring { background: #fde4ea; }
+.season-footer--summer { background: #fff1c9; }
+.season-footer--autumn { background: #f6dcc4; }
+.season-footer--winter { background: #e3ebfb; }
+
+.season-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Each decoration gently sways */
+.season-icon {
+  display: inline-block;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50%      { transform: rotate(8deg) translateY(-3px); }
+}
+
+.season-message {
+  margin: 0;
+  font-weight: 800;
+  color: var(--animal-text-color);
+}
+
+.season-copyright {
+  color: var(--animal-text-color-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .season-icon {
+    animation: none;
+  }
+}
